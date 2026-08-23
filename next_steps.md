@@ -35,12 +35,12 @@ Checklist for finalizing the Simply Sacred landing page.
 
 ## Known gaps
 
-- [ ] **No contact form.** There was one, but it never worked: it originally posted to
-  `action="#"`, which silently discarded every submission and reloaded the page. It has
-  been removed in favour of a `mailto:` button, which works with no backend.
-  **GitHub Pages is static hosting and cannot process a form submission itself** — a real
-  form requires a third-party endpoint such as Formspree (free tier ~50 submissions/month),
-  which means swapping the form's `action` for the id they issue.
+- [x] **No contact form — decided, not a gap.** There was one, but it never worked: it posted
+  to `action="#"`, which silently discarded every submission and reloaded the page. It was
+  replaced with a `mailto:` button, which works with no backend. Opening the visitor's email
+  client is the accepted behaviour; a real form would need a third-party endpoint (Formspree,
+  or Netlify Forms if the site ever moved there) and is not wanted. Revisit only if `mailto:`
+  proves to lose enquiries.
 - [ ] **Images are unoptimized.** 1.55 MB total, every photo served at full resolution
   (~1100x1600) regardless of the size it displays at. The gallery is `loading="lazy"`, but the
   About, services, and contact photos all load up front (~740 KB). Resizing to roughly 2x their
@@ -52,6 +52,52 @@ Checklist for finalizing the Simply Sacred landing page.
 ## Launch
 
 _Complete — the site is live at https://simplysacred.life._
+
+## Future: consolidate on Cloudflare
+
+Goal: cut recurring cost from roughly $450/yr to roughly $30/yr, and leave Danita with as few
+logins as possible. Not urgent — see the timing note below.
+
+**Target setup**
+
+| Piece | Today | Target | Cost |
+|---|---|---|---|
+| Web hosting | A2 "Ignite" cPanel, ~$400/yr | GitHub Pages (already serving) | $0 |
+| DNS zone | a2hosting nameservers | Cloudflare DNS | $0 |
+| Domain | hosting.com, ~$50/yr | Cloudflare Registrar (at-cost) | ~$30/yr |
+| Email @simplysacred.life | cPanel mailboxes | Cloudflare Email Routing -> Outlook, if needed | $0 |
+
+Verify the `.life` renewal price before committing; the figure above is an estimate.
+
+**Keep hosting on GitHub Pages.** Cloudflare Pages was considered and rejected: the source has
+to live in git either way, so moving the host does not remove the GitHub account from the
+picture and therefore saves no logins. Two accounts is the floor — Cloudflare for the name and
+the plumbing, GitHub for the site.
+
+**The one thing that must not be done out of order:** the DNS zone lives *on the A2 hosting
+account*. Cancelling the plan destroys the zone, the domain stops resolving, and the site goes
+dark even though it is hosted on GitHub. Move DNS first, always.
+
+**Order of operations**
+
+1. cPanel -> Email Accounts: find out whether any real `@simplysacred.life` mailboxes exist and
+   are used. The business card uses `simply.sacred@outlook.com`, so there may be none. If there
+   are, export the mail — cancelling deletes it.
+2. Add the domain to Cloudflare, let it import the existing zone, then change the nameservers
+   at the registrar. Confirm https://simplysacred.life still loads before going further.
+3. Only if step 1 found live mailboxes: set up Cloudflare Email Routing to forward to Outlook.
+   It forwards but cannot *send* from the address; Zoho Mail's free tier can, if that matters.
+4. Cancel the A2 hosting plan.
+5. Transfer the domain to Cloudflare Registrar. Independent of the above. Needs the transfer
+   lock off (currently `Locked: Yes`) and the EPP code — both on the domain's General page at
+   hosting.com.
+
+**Timing.** The hosting product shows **renews 2028-02-12** and the domain **2027-02-13**, so
+the hosting looks prepaid for roughly three more years. If so, cancelling early saves nothing
+and probably refunds nothing — the saving is in not renewing in 2028. Confirm with billing what
+was actually paid for and whether any of it is refundable. Even so, do steps 1-3 well before
+then: moving DNS off a box that is about to be abandoned is the risky part, and it is far
+easier done deliberately than under a deadline.
 
 ## Done
 
