@@ -29,6 +29,7 @@ _Nothing outstanding._
 ## Launch
 
 - [ ] **Go live:** complete the DNS switch for `simplysacred.life` to point at GitHub Pages.
+- [ ] **Point hosting URL to GitHub Page:** Configure the custom domain and hosting URL to point to the GitHub Pages site.
 
 ## Done
 
