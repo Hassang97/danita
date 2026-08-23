@@ -2,7 +2,7 @@
 
 Landing page for Danita Briggs, birth doula.
 
-**Live (review URL):** https://hassang97.github.io/danita/
+**Live:** https://simplysacred.life
 
 Hand-written static HTML and CSS. No build step, no dependencies, no JavaScript.
 
@@ -62,6 +62,27 @@ The repo must stay **public** — Pages on a private repo needs GitHub Pro ($4/m
 - Breakpoints: 900px (services grid), 768px (main mobile layout), 700px (gallery),
   420px (small phones).
 
-## Before launch
+## Hosting & domain
+
+Static files on **GitHub Pages**, DNS zone managed in the **a2hosting cPanel**, domain
+registered at **hosting.com**. Apex A records point at GitHub (`185.199.108-111.153`);
+`www` is a CNAME to the apex; the `CNAME` file in this repo sets the custom domain.
+Mail records (MX/SPF/DKIM/DMARC) still point at the old A2 host — the hosting plan is
+live and still serves an older site.
+
+Current state is stable: nothing degrades on its own, and the Pages DNS check is green.
+Four things are on a clock, in order of when they matter:
+
+| When | What | Why |
+|---|---|---|
+| Any time | Transfer the repo to Danita's GitHub account | Only real single point of failure — the business domain serves from a personal account |
+| Any time | Confirm with A2 billing what was prepaid and what's refundable | The "wait until 2028" plan rests on the assumption that hosting is prepaid |
+| Early 2027 | Transfer the domain to Cloudflare Registrar (renews 2027-02-13) | Independent of everything else; transferring adds a year, so it avoids the ~$50 renewal |
+| Late 2027 | Move the DNS zone to Cloudflare, then cancel A2 (renews 2028-02-12) | The zone lives *on the A2 account* — cancelling first takes the site dark. **Move DNS first, always.** The ~$400/yr saving is in not renewing |
+
+Hosting stays on GitHub Pages either way; Cloudflare Pages was considered and rejected.
+Full plan, order of operations, and email caveats: `next_steps.md`.
+
+## Outstanding work
 
 See `next_steps.md`.
