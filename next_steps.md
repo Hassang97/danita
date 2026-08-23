@@ -28,10 +28,17 @@ _Nothing outstanding._
 
 ## Launch
 
-- [ ] **Go live:** complete the DNS switch for `simplysacred.life` to point at GitHub Pages.
-- [ ] **Point hosting URL to GitHub Page:** Configure the custom domain and hosting URL to point to the GitHub Pages site.
+_Complete — the site is live at https://simplysacred.life._
 
 ## Done
+
+- [x] **Live at `https://simplysacred.life`.** Apex A records in the a2hosting cPanel Zone
+      Editor point at GitHub Pages (`185.199.108-111.153`, TTL 300); `www` stays a CNAME to
+      the apex. A `CNAME` file in the repo root sets the custom domain, and GitHub
+      auto-enabled Enforce HTTPS once Let's Encrypt issued the cert.
+- [x] All other zone records (`mail`, `ftp`, `cpanel`, `webmail`, MX, SPF, DKIM, DMARC) still
+      point at the A2 host `66.198.240.27` and were left untouched. **The A2 hosting plan is
+      still active and still serves an older site** — check what depends on it before cancelling.
 
 - [x] Real photos throughout — About, all three service cards, contact, and a six-image gallery.
 - [x] Services grid renders three across instead of silently collapsing to two with an orphan card.
