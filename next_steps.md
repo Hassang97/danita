@@ -17,6 +17,7 @@ _Nothing outstanding._
 - [ ] **Page metadata is thin.** `<title>` is still the generic "Doula Services | Supporting
   Your Journey" — no brand name. There is no `<meta name="description">`, no favicon, and no
   Open Graph tags, so links shared to Instagram/Facebook will preview with no image or blurb.
+- [ ] **Share link previews:** Make sure the share link shows up properly on browsers/insta (this involves setting up the metadata mentioned above, to be added later).
 - [ ] **Images are unoptimized.** 1.72 MB total, every photo served at full resolution
   (~1100x1600) regardless of the size it displays at. The gallery is `loading="lazy"`, but the
   About, services, and contact photos all load up front (~740 KB). Resizing to roughly 2x their
