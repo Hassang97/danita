@@ -238,6 +238,23 @@ section {
     font-size: 1.1em;
 }
 
+/* Long-form testimonial: left-aligned in a tinted card so it stays readable */
+.testimonial--featured {
+    max-width: 760px;
+    padding: 35px 40px;
+    background: var(--light-bg);
+    border-radius: 8px;
+    text-align: left;
+}
+
+.testimonial--featured p + p {
+    margin-top: 1em;
+}
+
+.testimonial--featured cite {
+    margin-top: 20px;
+}
+
 .testimonial cite {
     display: block;
     margin-top: 10px;
@@ -378,6 +395,10 @@ footer {
     }
 
     .service-card {
+        padding: 25px;
+    }
+
+    .testimonial--featured {
         padding: 25px;
     }
 
