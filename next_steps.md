@@ -4,8 +4,7 @@ Checklist for finalizing the Simply Sacred landing page.
 
 ## Blocking — needs your input
 
-- [ ] **Replace testimonial placeholders.** Both testimonials still read `- [Client Name]`.
-  Confirm the quotes are real and get permission before using names.
+_Nothing outstanding._
 
 ## Known gaps
 
@@ -39,6 +38,7 @@ Checklist for finalizing the Simply Sacred landing page.
 - [x] Mobile breakpoints at 768px and 420px (there were none).
 - [x] Smooth anchor scrolling and eased button/link/focus transitions, with a
       `prefers-reduced-motion` guard.
+- [x] Three real client testimonials in place; the two placeholder ones removed.
 - [x] Email address set to `simply.sacred@outlook.com`, matching the business card.
 - [x] Paragraph spacing restored — the `* { margin: 0 }` reset had collapsed the About
       section's four paragraphs into one solid block.

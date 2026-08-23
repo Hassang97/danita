@@ -59,4 +59,4 @@ The repo must stay **public** — Pages on a private repo needs GitHub Pro ($4/m
 
 ## Before launch
 
-See `next_steps.md` — the testimonials are still `[Client Name]` placeholders.
+See `next_steps.md`.
