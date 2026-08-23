@@ -2,9 +2,14 @@
 
 Checklist for finalizing the Simply Sacred landing page.
 
-## Blocking — needs your input
+## Open
 
-_Nothing outstanding._
+- [ ] **GitHub Pages still shows "DNS check unsuccessful"** (`NotServedByPagesError`) on the
+  repo's Pages settings. It is cosmetic: all four a2hosting nameservers return the GitHub IPs,
+  the site serves 200, and Enforce HTTPS is on (GitHub only allows that once the cert exists).
+  The checker is hitting a resolver cache still holding the old `66.198.240.27` record under
+  its original 14400s TTL — those expire by roughly 10:00 UTC on 2026-08-23. Click
+  **Check again** after that and it should go green.
 
 ## Known gaps
 
@@ -14,13 +19,13 @@ _Nothing outstanding._
   **GitHub Pages is static hosting and cannot process a form submission itself** — a real
   form requires a third-party endpoint such as Formspree (free tier ~50 submissions/month),
   which means swapping the form's `action` for the id they issue.
-- [ ] **Images are unoptimized.** 1.72 MB total, every photo served at full resolution
+- [ ] **Images are unoptimized.** 1.55 MB total, every photo served at full resolution
   (~1100x1600) regardless of the size it displays at. The gallery is `loading="lazy"`, but the
   About, services, and contact photos all load up front (~740 KB). Resizing to roughly 2x their
   displayed size and/or serving WebP would cut this substantially.
-- [ ] **`images/business-card.jpeg` is unused,** deliberately — it is a phone snapshot of the
-  card held in hand over a chair, which reads as out of place next to the professional
-  photography. Kept in the repo in case a clean scan replaces it.
+- [ ] **No service area anywhere on the page.** The copy never says what region Danita covers,
+  and the phone number's 289 area code is the only hint. Anyone searching locally has no way to
+  tell if she serves them. Worth adding to the contact section and the meta description.
 
 ## Launch
 
@@ -33,9 +38,13 @@ _Complete — the site is live at https://simplysacred.life._
       (`favicon.ico` + `images/apple-touch-icon.png`, sage "S" monogram), and full Open Graph
       and Twitter card tags. `images/og-image.jpg` (1200x630) is generated from the About
       portrait on the site's warm-sand background.
-      **Note:** WhatsApp/Facebook/Instagram cache link previews aggressively. Old shares may
-      still show the previous cPanel page ("Danta Briggs" + cP logo) until their cache expires;
-      Facebook's can be forced with the Sharing Debugger at developers.facebook.com/tools/debug.
+      **Preview caching, as observed:** WhatsApp builds previews on the *sending device*, so
+      iPhone (never having scraped the domain) shows the correct preview immediately, while
+      WhatsApp Desktop still shows the old cPanel page ("Danta Briggs" + cP logo) from its own
+      local cache — that clears on logout or ages out by itself. Facebook and Instagram use a
+      shared server-side cache instead, so run the URL through the Sharing Debugger at
+      developers.facebook.com/tools/debug and hit "Scrape Again" *before* posting there,
+      or everyone will be served the cPanel version.
 - [x] **Live at `https://simplysacred.life`.** Apex A records in the a2hosting cPanel Zone
       Editor point at GitHub Pages (`185.199.108-111.153`, TTL 300); `www` stays a CNAME to
       the apex. A `CNAME` file in the repo root sets the custom domain, and GitHub
