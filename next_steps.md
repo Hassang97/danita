@@ -14,10 +14,6 @@ _Nothing outstanding._
   **GitHub Pages is static hosting and cannot process a form submission itself** — a real
   form requires a third-party endpoint such as Formspree (free tier ~50 submissions/month),
   which means swapping the form's `action` for the id they issue.
-- [ ] **Page metadata is thin.** `<title>` is still the generic "Doula Services | Supporting
-  Your Journey" — no brand name. There is no `<meta name="description">`, no favicon, and no
-  Open Graph tags, so links shared to Instagram/Facebook will preview with no image or blurb.
-- [ ] **Share link previews:** Make sure the share link shows up properly on browsers/insta (this involves setting up the metadata mentioned above, to be added later).
 - [ ] **Images are unoptimized.** 1.72 MB total, every photo served at full resolution
   (~1100x1600) regardless of the size it displays at. The gallery is `loading="lazy"`, but the
   About, services, and contact photos all load up front (~740 KB). Resizing to roughly 2x their
@@ -32,6 +28,14 @@ _Complete — the site is live at https://simplysacred.life._
 
 ## Done
 
+- [x] **Page metadata and share previews.** Title is now "Simply Sacred | Birth & Postpartum
+      Doula", with a meta description, canonical URL, theme colour, favicon
+      (`favicon.ico` + `images/apple-touch-icon.png`, sage "S" monogram), and full Open Graph
+      and Twitter card tags. `images/og-image.jpg` (1200x630) is generated from the About
+      portrait on the site's warm-sand background.
+      **Note:** WhatsApp/Facebook/Instagram cache link previews aggressively. Old shares may
+      still show the previous cPanel page ("Danta Briggs" + cP logo) until their cache expires;
+      Facebook's can be forced with the Sharing Debugger at developers.facebook.com/tools/debug.
 - [x] **Live at `https://simplysacred.life`.** Apex A records in the a2hosting cPanel Zone
       Editor point at GitHub Pages (`185.199.108-111.153`, TTL 300); `www` stays a CNAME to
       the apex. A `CNAME` file in the repo root sets the custom domain, and GitHub
