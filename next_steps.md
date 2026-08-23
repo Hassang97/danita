@@ -22,7 +22,7 @@ Once you have decided on the account/organization:
 2. We have already initialized the code locally. Push it to the new remote:
    ```bash
    # Make sure you are in the directory
-   cd /home/hassan/doula-landing-page
+   cd /home/hassan/danita
    
    # Add and commit the files
    git add .
