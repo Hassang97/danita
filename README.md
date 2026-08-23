@@ -44,6 +44,11 @@ The repo must stay **public** — Pages on a private repo needs GitHub Pro ($4/m
 
 ## Notes
 
+- **Bump the stylesheet version when you change CSS.** `index.html` links
+  `styles.css?v=N`. GitHub Pages serves CSS with `max-age=600`, and browsers that
+  already hold a copy will keep using it — increment `N` so the URL changes and the
+  new file is fetched.
+
 - **No contact form.** The "Send an Email" button is a `mailto:` link. GitHub Pages is
   static hosting and cannot process a form submission; a real one needs a third-party
   endpoint like Formspree. See `next_steps.md`.
