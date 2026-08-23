@@ -59,5 +59,4 @@ The repo must stay **public** — Pages on a private repo needs GitHub Pro ($4/m
 
 ## Before launch
 
-See `next_steps.md` — the email address on the page conflicts with the one on Danita's
-business card, and the testimonials are still `[Client Name]` placeholders.
+See `next_steps.md` — the testimonials are still `[Client Name]` placeholders.

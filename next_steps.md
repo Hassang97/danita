@@ -4,11 +4,6 @@ Checklist for finalizing the Simply Sacred landing page.
 
 ## Blocking — needs your input
 
-- [ ] **Settle the email address.** The page uses `hello@danita.life` in three places
-  (the visible text, the `mailto:` on it, and the "Send an Email" button). The business
-  card photo says `simply.sacred@outlook.com`, and this checklist elsewhere refers to the
-  domain as `simplysacred.life`. At least one of these is stale — pick the live one and
-  all three spots need updating together.
 - [ ] **Replace testimonial placeholders.** Both testimonials still read `- [Client Name]`.
   Confirm the quotes are real and get permission before using names.
 
@@ -44,5 +39,6 @@ Checklist for finalizing the Simply Sacred landing page.
 - [x] Mobile breakpoints at 768px and 420px (there were none).
 - [x] Smooth anchor scrolling and eased button/link/focus transitions, with a
       `prefers-reduced-motion` guard.
+- [x] Email address set to `simply.sacred@outlook.com`, matching the business card.
 - [x] Paragraph spacing restored — the `* { margin: 0 }` reset had collapsed the About
       section's four paragraphs into one solid block.
