@@ -11,6 +11,28 @@ Checklist for finalizing the Simply Sacred landing page.
   its original 14400s TTL — those expire by roughly 10:00 UTC on 2026-08-23. Click
   **Check again** after that and it should go green.
 
+- [ ] **Transfer the repo to Danita's GitHub account.** The site currently lives under
+  `Hassang97`, which means one person's account controls what is served at the business's
+  domain. The code itself is safe — the repo is public and the site is static, so it can always
+  be recovered — but only the owner can push. If that account is unreachable, suspended, or
+  deleted, the site freezes as-is (no fixing a price, no pulling a testimonial) or disappears
+  entirely, and her domain points at nothing.
+
+  **Plan:** Danita creates a GitHub account; transfer `danita` to it
+  (Settings -> General -> Danger Zone -> Transfer ownership); add `Hassang97` back as a
+  collaborator so day-to-day pushes are unchanged. Note that adding her as a collaborator on
+  the existing repo is *not* equivalent — on a personal repo, collaborators can push but
+  cannot transfer or delete. A free GitHub organization owned by her, with both as owners,
+  is the alternative if two people need full rights.
+
+  **After transferring:** the Pages site rebuilds under the new owner and the `CNAME` file
+  carries over, so DNS needs no change — but confirm https://simplysacred.life still loads and
+  that Enforce HTTPS is still on. GitHub redirects the old repo URL, but update the URL
+  recorded in any handover notes anyway.
+
+  **Also record for her, wherever the handover notes live:** the repo URL, and the one line a
+  stranger would need — "static HTML site on GitHub Pages, DNS managed at hosting.com."
+
 ## Known gaps
 
 - [ ] **No contact form.** There was one, but it never worked: it originally posted to
