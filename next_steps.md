@@ -4,13 +4,6 @@ Checklist for finalizing the Simply Sacred landing page.
 
 ## Open
 
-- [ ] **GitHub Pages still shows "DNS check unsuccessful"** (`NotServedByPagesError`) on the
-  repo's Pages settings. It is cosmetic: all four a2hosting nameservers return the GitHub IPs,
-  the site serves 200, and Enforce HTTPS is on (GitHub only allows that once the cert exists).
-  The checker is hitting a resolver cache still holding the old `66.198.240.27` record under
-  its original 14400s TTL — those expire by roughly 10:00 UTC on 2026-08-23. Click
-  **Check again** after that and it should go green.
-
 - [ ] **Transfer the repo to Danita's GitHub account.** The site currently lives under
   `Hassang97`, which means one person's account controls what is served at the business's
   domain. The code itself is safe — the repo is public and the site is static, so it can always
@@ -101,6 +94,10 @@ easier done deliberately than under a deadline.
 
 ## Done
 
+- [x] **GitHub Pages DNS check is green.** It sat on "DNS check unsuccessful"
+      (`NotServedByPagesError`) purely because the checker's resolver was still caching the old
+      `66.198.240.27` record under its original 14400s TTL. Once that expired, **Check again**
+      passed. The site was serving correctly the whole time.
 - [x] **Page metadata and share previews.** Title is now "Simply Sacred | Birth & Postpartum
       Doula", with a meta description, canonical URL, theme colour, favicon
       (`favicon.ico` + `images/apple-touch-icon.png`, sage "S" monogram), and full Open Graph
